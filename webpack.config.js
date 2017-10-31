@@ -53,7 +53,8 @@ module.exports = {
 
   entry: {
     vendors: ['jquery', 'jquery.nicescroll', 'bootstrap', 'wow.js','typed.js' , 'navigo'  ,path.resolve(__dirname, 'src/x-vendors/_vendors.scss')],
-    commons : path.resolve(commonsDir , '_commons.js'),
+    commons: path.resolve(commonsDir, '_commons.js'),
+    polyfills: path.resolve(__dirname, 'src/polyfill.js'),
     index: path.resolve(__dirname, 'src/index.js'),
   },
 
