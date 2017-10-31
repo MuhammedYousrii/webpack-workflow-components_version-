@@ -1,0 +1,6 @@
+node_modules/
+assets/
+.vscode/
+faveicon.ico
+notes.txt
+package-lock.json

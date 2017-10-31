@@ -1,0 +1,63 @@
+{
+  "name": "webpack-workflow (components_version)",
+  "version": "1.0.0",
+  "description": "webpack-workflow (components_version) That Provide Your time init your project .. it's very useful very easy to customize to handling big-projects",
+  "main": "src/indexx.js",
+  "scripts": {
+    "test": "cross-env NODE_ENV=test && karma start karma.config.js --log-level debug",
+    "start": "cross-env NODE_ENV=development && webpack-dev-server --config webpack.config.js",
+    "prod": "cross-env NODE_ENV=production PLATFORM=web webpack"
+  },
+  "author": "Muhammed Yousrii",
+  "license": "ISC",
+  "keywords": [
+    "webpack",
+    "workflow",
+    "components"
+  ],
+  "dependencies": {
+    "webpack": "^3.3.0",
+	  "babel-polyfill": "^6.26.0",
+    "jquery": "^2.2.4",
+    "lodash": "^4.17.4",
+	  "navigo": "^5.3.1",
+    "axios": "^0.16.2",
+    "bootstrap": "^3.3.7",
+    "jquery.nicescroll": "^3.7.6",
+    "wow.js": "^1.2.2",
+    "typed.js": "^2.0.5",
+    "font-awesome": "^4.7.0",
+    "animate.css": "^3.5.2"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+	  "babel-preset-es2017": "^6.24.1",
+    "compass-mixins": "^0.12.10",
+    "cross-env": "^5.0.3",
+    "eslint-config-rallycoding": "^3.2.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.29.0",
+    "image-webpack-loader": "^3.3.1",
+    "pug": "^2.0.0-rc.2",
+    "pug-loader": "^2.3.0",
+    "style-loader": "^0.18.2",
+    "node-sass": "^4.5.3",
+    "css-loader": "^0.28.4",
+    "sass-loader": "^6.0.6",
+    "url-loader": "^0.5.9",
+    "clean-webpack-plugin": "^0.1.16",
+    "webpack-bundle-analyzer": "^2.9.0",
+    "webpack-dev-server": "^2.6.1",
+    "webpack-manifest-plugin": "^1.3.2",
+	  "karma": "^1.7.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-mocha": "^1.3.0",
+    "karma-webpack": "^2.0.5",
+	  "expect.js": "^0.3.1",
+	  "mocha": "^4.0.1"
+  }
+}

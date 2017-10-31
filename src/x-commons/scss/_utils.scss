@@ -1,0 +1,162 @@
+@mixin resRange($min-size , $max-size){
+    @media only screen and (min-width: map-get($breakpoints , $min-size)) and (max-width : map-get($breakpoints ,  $max-size))
+    {
+        @content ;
+    }
+}
+
+
+@mixin responsive($max-size){
+    @media only screen and  (max-width : map-get($breakpoints ,  $max-size))
+    {
+        @content ;
+    }
+}
+
+@mixin responsiveMin($min-size){
+    @media only screen and (min-width : map-get($breakpoints , $min-size))
+    {
+        @content ;    
+    }
+}
+
+
+
+@mixin vertical-res($min-size , $type){
+    @if quote($type) == "min" {
+        @media only screen and (min-height : map-get($verticalBreakPoints, $min-size)){
+            @content ;
+        }
+    }
+    @else if quote($type) == "max" {
+        @media only screen and (max-height : map-get($verticalBreakPoints, $min-size)){
+            @content ;
+        }
+    }
+}
+
+
+@mixin vertical-resRange($min-size , $max-size){
+    @media only screen and (min-height : map-get($verticalBreakPoints,$min-size)) and  (max-height : map-get($verticalBreakPoints ,  $max-size))
+    {
+        @content ;
+    }
+}
+
+
+
+
+
+@function pxtoperc($child-height , $parent-height){
+    @return percentage($child-height / $parent-height);
+}
+
+
+
+
+
+@function converter($value , $current-unit , $convert-unit){
+    $root-base : 62.5 ;
+    $px-base : 10 ;
+    $px-base-for-perc : 16 ;
+    // Converting from px Based On $px Base
+    @if $current-unit == px {
+        @if $convert-unit == perc {
+            @return percentage($value / $px-base-for-perc) ;
+        }
+        @else if $convert-unit == rem {
+            @return ($value / $px-base)rem ;
+        }
+
+    }
+    @else if $current-unit == rem {
+        @if $convert-unit == perc {
+            
+            @return ($value * $root-base) *  1%;
+        }
+        @else if $convert-unit == px {
+            @return ($value *  $px-base) + 0px ;
+        }
+
+    }
+    @else if $current-unit == perc {
+        
+    }
+    
+}
+
+
+@function rem ($value){
+    @return $value + rem
+;}
+
+
+
+
+
+@mixin no-padding($type){
+    @if $type == vert {
+        padding-top: 0 !important ;
+        padding-bottom: 0 !important ;
+    }
+    @else if $type == horz {
+        padding-right: 0 !important ;
+        padding-left: 0 !important ;
+    } 
+    @else if $type == "all" {
+        padding: 0 !important ;
+    }
+    @else {
+        padding: 1.5rem !important ;
+    }
+    
+
+}
+@mixin no-margin($type){
+    @if $type == vert {
+        margin-top: 0 !important ;
+        margin-bottom: 0 !important ;
+    }
+    @else if $type == horz {
+        margin-right: 0 !important ;
+        margin-left: 0 !important ;
+    } 
+    @else if $type == "all" {
+        margin: 0 !important ;
+    }
+    @else {
+        margin: 1.5rem !important ;
+    }
+
+}
+
+@mixin reset-link {
+    color: $white ;
+    &:hover ,
+    &::active {
+        text-decoration: none ;
+    }
+}
+
+@mixin align-overlay {
+    position: absolute ;
+    top: 0 ;
+    left: 0 ;
+    height: 100% ;
+    width: 100% ;
+}
+
+@mixin section-border ($position : "top" , $height : 1.5rem){
+    content: '' ;
+    position: absolute ;
+    @if quote($position) == "top" {
+        top: 0 ;
+    }@else if quote($position) == "bottom" {
+        bottom: 0 ;
+    }
+    left: 0 ;
+    height: $height ;
+    width: 100% ;
+    z-index: 1000 ;
+    @include background-image(linear-gradient(to bottom , $white 1%, $light-black 2% ,$black));
+}

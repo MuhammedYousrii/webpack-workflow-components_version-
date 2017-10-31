@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'PetitFormalScript';
+    src: url('../fonts/PetitFormalScript-Regular.ttf');
+}
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700');
+
+
+
+
+$headline-font : 'PetitFormalScript';  
+$text-font : 'Montserrat', sans-serif;
+$light : 300 ;
+$normal : 400 ;
+$medium : 500 ;
+$semi-bold : 600 ;
+$bold : 700 ;
+$bolder : 800 ;
+$ultra-bold : 900 ;
+
