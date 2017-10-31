@@ -1,6 +1,6 @@
 {
   "name": "webpack-components",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "webpack-workflow (components_version) That Provide Your time init your project .. it's very useful very easy to customize to handling big-projects",
   "main": "src/indexx.js",
   "scripts": {
