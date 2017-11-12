@@ -1,0 +1,123 @@
+.img-fill {
+    display: block ;
+    height: 100% !important ;
+    width: 100%  !important;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.no-margin {
+    margin: 0 !important;
+}
+
+.icon-space {
+    margin-right: 0.5rem;
+}
+.icon-space-extra {
+    margin-right: 1rem;
+}
+
+.devider {
+    display: block;
+    clear: both;
+    width: 100%;
+}
+.devider-thick {
+    height: 0.3rem;
+    background: $lightgray;
+}
+.devider-thin {
+    height: 1px;
+    background: fade-out($lightgray, 0.5);    
+}
+
+.case {
+    @include font-control($main-font , $semi-bold , converter(1.4, rem, perc), italic);
+}
+
+.value-setter {
+    @include font-control($main-font , $bold , converter(1.4 , rem , perc));
+    @include text-controller(uppercase , center , $midgray);
+}
+
+.overlay {
+    position: absolute ;
+    top: 0; 
+    left: 0 ;
+    height: 100% ; width: 100% ;
+}
+
+.overlay-black {
+    background: fade-out(#323232, 0.3);
+}
+
+.overlay-white {
+    background: fade-out(#FFFFFF, 0.3);
+}
+
+.position-left {
+    display: inline-block ;    
+    position: absolute ;
+    left : 0 ;
+}
+.position-right  {
+    display: inline-block ;    
+    position: absolute ;
+    right: 0;
+}
+
+.grid-xs-height {
+    height: 10rem ;
+}
+.grid-small-height {
+    height: 20rem ;
+}
+.grid-medium-height {
+    height: 30rem ;
+}
+.grid-big-height {
+    height: 40rem ;
+}
+
+.border-right-none {
+    border-right: none !important ;
+}
+.border-top-none {
+    border-top: none !important ;
+}
+.border-left-none {
+    border-left: none !important ;
+}
+.border-bottom-none {
+    border-bottom: none !important ;
+}
+
+.border-right-radius-none {
+    @include border-right-radius(0px !important);
+}
+.border-top-radius-none {
+    @include border-top-radius(0px !important);
+}
+.border-left-radius-none {
+    @include border-left-radius(0px !important);
+}
+.border-bottom-radius-none {
+    @include border-bottom-radius(0 !important);
+}
+
+.button-wrapper {
+    @include no-margin('all');
+    @include no-padding('all');
+}
+
+.display-inline-block {
+    display: inline-block !important ;
+}
+.display-block {
+    display: block !important ;
+}
+.display-inline-flex {
+    display: inline-flex !important;
+}

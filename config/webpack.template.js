@@ -1,25 +1,23 @@
-const htmlGenrator = require('html-webpack-plugin')
+const htmlGenrator = require('html-webpack-plugin');
 const path = require('path');
-const {
-  isProd
-} = require('./webpack.env.js');
 
-const index = new htmlGenrator({
-  filename: 'index.html',
-  title: 'Crafted Internet',
-  minify: {
-    collapseWhitespace: isProd,
-    collapseBooleanAttributes: isProd
-  },
-  publicPath: './',
-  hash: !isProd,
-  favicon: path.resolve(__dirname, '../favicon.ico'),
-  template: path.resolve(__dirname, '../src/index.pug'),
-});
-
-
+const TemplateController = isProd => {
+  return new htmlGenrator({
+    filename: 'index.html',
+    title: 'Ready',
+    minify: {
+      collapseWhitespace: isProd,
+      collapseBooleanAttributes: isProd
+    },
+    cache: true,
+    publicPath: './',
+    hash: !isProd,
+    favicon: path.resolve(__dirname, '../favicon.ico'),
+    template: path.resolve(__dirname, '../src/index.pug'),
+  });
+};
 
 
 module.exports = {
-  index,
-}
+  TemplateController,
+};

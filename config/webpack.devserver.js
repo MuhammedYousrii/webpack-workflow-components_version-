@@ -2,7 +2,7 @@ const path = require('path');
 
 const devServer = {
     // Serve Content From Dist Folder
-    contentBase: path.join(__dirname, '../src/'),
+    contentBase: path.join(__dirname, '../dist/'),
     // Compress With Gzip
     compress: true,
     port: 8080,
@@ -13,7 +13,7 @@ const devServer = {
     //Watch Files And update Yourself
     watchContentBase: true,
     //Watching Constraines
-    historyApiFallback: true ,
+    historyApiFallback: true,
     watchOptions: {
         aggregateTimeout: 500,
         ignored: './node_modules/',
@@ -29,4 +29,4 @@ const devServer = {
 
 module.exports = {
     devServer
-}
+};

@@ -6,14 +6,14 @@
 }
 
 
-@mixin responsive($max-size){
+@mixin resMax($max-size){
     @media only screen and  (max-width : map-get($breakpoints ,  $max-size))
     {
         @content ;
     }
 }
 
-@mixin responsiveMin($min-size){
+@mixin resMin($min-size){
     @media only screen and (min-width : map-get($breakpoints , $min-size))
     {
         @content ;    
@@ -48,13 +48,8 @@
 
 
 @function pxtoperc($child-height , $parent-height){
-    @return percentage($child-height / $parent-height);
+    @return percentage($child-height / $parent-height / 14);
 }
-
-
-
-
-
 @function converter($value , $current-unit , $convert-unit){
     $root-base : 62.5 ;
     $px-base : 10 ;
@@ -85,65 +80,88 @@
     
 }
 
-
 @function rem ($value){
     @return $value + rem
 ;}
 
 
 
-
-
-@mixin no-padding($type){
-    @if $type == vert {
-        padding-top: 0 !important ;
-        padding-bottom: 0 !important ;
+@mixin no-padding($type , $dir:null){
+    @if $type == "vert" {
+        @if $dir == "top" {
+            padding-top: 0 !important ;
+        }@else if $dir == "bottom" {
+            padding-bottom: 0 !important ;            
+        }@else {
+            padding-top: 0 !important ;
+            padding-bottom: 0 !important ;
+        }
     }
-    @else if $type == horz {
-        padding-right: 0 !important ;
-        padding-left: 0 !important ;
+    @else if $type == "horz" {
+        @if $dir == "left" {
+            padding-left: 0 !important ;
+        }@else if $dir == "right" {
+            padding-right: 0 !important ;
+        }@else {
+            padding-right: 0 !important ;
+            padding-left: 0 !important ;
+        }
     } 
     @else if $type == "all" {
         padding: 0 !important ;
     }
     @else {
-        padding: 1.5rem !important ;
+        padding: $dir !important ;
     }
-    
-
 }
-@mixin no-margin($type){
-    @if $type == vert {
-        margin-top: 0 !important ;
-        margin-bottom: 0 !important ;
+
+
+
+@mixin no-margin($type , $dir:null){
+    @if $type == "vert" {
+        @if $dir == "top" {
+            margin-top: 0 !important ;
+        }@else if $dir == "bottom" {
+            margin-bottom: 0 !important ;            
+        }@else {
+            margin-top: 0 !important ;
+            margin-bottom: 0 !important ;
+        }
     }
-    @else if $type == horz {
-        margin-right: 0 !important ;
-        margin-left: 0 !important ;
+    @else if $type == "horz" {
+        @if $dir == "left" {
+            margin-left: 0 !important ;
+        }@else if $dir == "right" {
+            margin-right: 0 !important ;
+        }@else {
+            margin-right: 0 !important ;
+            margin-left: 0 !important ;
+        }
     } 
     @else if $type == "all" {
         margin: 0 !important ;
     }
     @else {
-        margin: 1.5rem !important ;
+        margin: $dir !important ;
     }
-
 }
 
-@mixin reset-link {
-    color: $white ;
+@mixin reset-link($color) {
+    color: $color ;
+    cursor: pointer ;
     &:hover ,
-    &::active {
+    &:active {
         text-decoration: none ;
     }
 }
 
-@mixin align-overlay {
+@mixin overlay($color:#323232 , $amount:0.3) {
     position: absolute ;
     top: 0 ;
     left: 0 ;
     height: 100% ;
     width: 100% ;
+    background: fade-out($color, $amount)
 }
 
 @mixin section-border ($position : "top" , $height : 1.5rem){
@@ -159,4 +177,14 @@
     width: 100% ;
     z-index: 1000 ;
     @include background-image(linear-gradient(to bottom , $white 1%, $light-black 2% ,$black));
+}
+
+
+@mixin icon-align($center,$dir:right, $space:0.5rem) {
+    @if $center == true {
+        margin: auto ;
+        padding: 0.5rem;
+    }@else {
+        margin-#{$dir}: $space; 
+    }
 }

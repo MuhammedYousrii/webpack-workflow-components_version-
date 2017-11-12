@@ -6,15 +6,25 @@ import {footercontroller} from './head-component/footer-component.js';
 
 class app_bootstrap {
     constructor(){
-
+        this.headercontroller = headcontroller ;
+        this.footercontroller = footercontroller ;
+        this.headcontroller = headcontroller ;
+        this.rootcontroller = rootcontroller ;
     }
 
 
-    init(){
-        headcontroller.init();
-        headercontroller.init();
-        rootcontroller.init();
-        footercontroller.init();
+    bootstrapStatic(){        
+        this.headercontroller.init();
+        this.footercontroller.init();
+        return this ;
+    }
+    bootstrapDynamic(){
+        this.headcontroller.init();
+        this.rootcontroller.init();
+        return this ;
+    }
+    bootstrapFull(){
+        this.bootstrapStatic().bootstrapDynamic();
     }
 }
 

@@ -47,10 +47,18 @@ class eventEmmiter {
         
     }
 
-    publish(event_name , arg){
+    publish(event_name, arg, hooks){
+        let _this = this; 
         this.events[event_name].forEach(function(func) {
             func.handler(arg);
         });
+
+        if (hooks) {
+            return new Promise((resolve, reject) => {
+                if (_this.events[event_name][0]) resolve(true);
+                else reject(false); 
+            });
+        }
     }
     
 
