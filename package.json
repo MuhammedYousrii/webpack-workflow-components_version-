@@ -7,7 +7,7 @@
     "test": "--env.NODE_ENV=test && karma start karma.config.js --log-level debug",
     "start": "webpack-dev-server --env.NODE_ENV=development --env.platform=web --config webpack.config.js",
     "build": "webpack --env.NODE_ENV=production --env.paltform=web -p",
-    "model": "json-server --watch models/drivers-models.json"
+    "model": "json-server --watch src/models/app.model.json"
   },
   "author": "Muhammed Yousrii",
   "license": "ISC",

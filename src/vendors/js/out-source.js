@@ -1,0 +1,9 @@
+import 'jquery';
+import 'lodash';
+import 'navigo';
+import 'slick-carousel';
+import 'bootstrap';
+import 'bootstrap-table';
+import 'jquery.nicescroll';
+import 'wow.js';
+import 'typed.js';

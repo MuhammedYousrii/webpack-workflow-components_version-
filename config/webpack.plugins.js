@@ -19,7 +19,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const hmrConfig = isProd => {
-    const config = !isProd ? new HotModuleReplacementPlugin() : null;
+    const config = !isProd ? new HotModuleReplacementPlugin(): undefined;
     return config;
 };
 

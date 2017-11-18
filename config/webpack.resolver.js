@@ -2,13 +2,12 @@ const path = require('path');
 
 const resolve = {
     alias: {
-        classes: path.resolve(__dirname, '../src/x-vendors/js/classes/'),
-        utils: path.resolve(__dirname, '../src/x-vendors/js/utils/'),
-        shareds: path.resolve(__dirname, '../src/x-shared/'),
+        libs: path.resolve(__dirname, '../src/commons/js/libs/'),
+        utils: path.resolve(__dirname, '../src/commons/js/utils/'),
         commons: path.resolve(__dirname, '../src/x-commons/'),
         publics: path.resolve(__dirname, '../src/x-public/')
     },
-    extensions: ['.js', '.scss', '.pug'],
+    extensions: ['.js','.jsx', 'png', '.scss', '.pug'],
     modules: [
         path.resolve(__dirname, '../node_modules')
     ]

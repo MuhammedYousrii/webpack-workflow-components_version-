@@ -35,24 +35,39 @@ const {
 
 module.exports = function (env) {
   const isProd = env.NODE_ENV === 'production';
-  const commonsDir = path.resolve(__dirname, 'src/x-commons/');
+  const targetPlateform = env.plateform;
+  const commonsDir = path.resolve(__dirname, 'src/commons/');
+  const vendorsDir = path.resolve(__dirname, 'src/vendors/')
+
 
   return {
     // Sources Context
     context: path.resolve(__dirname, 'src'),
     recordsPath: path.resolve(__dirname, 'dist/', 'records.json'),
-    //if prod mode
     cache: true,
     profile: true,
-    target: 'web',
+    target: targetPlateform,
 
 
     entry: {
-      vendors: ['jquery', 'bootstrap', 'bootstrap-table', 'jquery.nicescroll', 'jquery-slimscroll', 'jquery.scrollto', 'jquery-knob', 'wow.js', 'raphael', 'typed.js', 'navigo', 'pace', 'detect.js', 'blockui-npm', 'morris.js/index.js', path.resolve(__dirname, 'src/x-vendors/_vendors.scss')],
-      commons: [path.resolve(commonsDir, '_commons.js'),
+      vendors: [
+        // js vendors 
+        path.resolve(vendorsDir, '_vendors.js'),
+        // css vendors
+        path.resolve(vendorsDir, '_vendors.scss')
+      ],
+      commons: [
+        // common js Modules 
+        path.resolve(commonsDir, '_commons.js'),
+        // common css modules 
         path.resolve(__dirname, 'src/x-commons/_commons.css.scss')
       ],
+
+      // polyfills needed
       polyfills: path.resolve(__dirname, 'src/pollyfills.js'),
+      
+      
+      // --- SPA ENTRY
       index: path.resolve(__dirname, 'src/index.js'),
     },
 
